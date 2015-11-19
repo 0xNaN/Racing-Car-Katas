@@ -25,11 +25,14 @@ public class Alarm
     {
         double psiPressureValue = sensor.value();
 
-        if (psiPressureValue < lowTreshold || highTreshold < psiPressureValue)
-        {
+        if (isOutsideRange(psiPressureValue)) {
             alarmOn = true;
         }
     }
+
+	private boolean isOutsideRange(double pressure) {
+		return pressure < lowTreshold || highTreshold < pressure;
+	}
 
     public boolean isAlarmOn()
     {
