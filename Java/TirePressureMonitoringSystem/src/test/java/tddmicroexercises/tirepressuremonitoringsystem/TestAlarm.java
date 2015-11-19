@@ -14,7 +14,7 @@ public class TestAlarm {
     @Test
     public void
     should_starts_off() {
-        Alarm alarm = new Alarm();
+        Alarm alarm = new Alarm(sensor);
         assertEquals(false, alarm.isAlarmOn());
     }
     

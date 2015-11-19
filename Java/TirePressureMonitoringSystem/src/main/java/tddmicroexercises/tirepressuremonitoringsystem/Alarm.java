@@ -11,8 +11,8 @@ public class Alarm
 
     boolean alarmOn = false;
     
-    public Alarm() {
-    	this.sensor = new FakeSensor();
+    public Alarm(Sensor sensor) {
+    	this.sensor = sensor;
     }
     
     public Alarm(Sensor sensor, double lowTreshold, double highTreshold) {
