@@ -23,9 +23,7 @@ public class Alarm
 
     public void check()
     {
-        double psiPressureValue = sensor.value();
-
-        if (isOutsideRange(psiPressureValue)) {
+        if (isOutsideRange(sensor.value())) {
             alarmOn = true;
         }
     }
