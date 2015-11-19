@@ -23,7 +23,7 @@ public class TestAlarm {
     should_turn_on_when_tire_is_low() {
     	Alarm alarm = new Alarm(sensor, 1, 2);
     	context.checking(new Expectations(){{
-    		oneOf(sensor).popNextPressurePsiValue(); will(returnValue(0.0));
+    		oneOf(sensor).value(); will(returnValue(0.0));
     	}});
     	alarm.check();
     	

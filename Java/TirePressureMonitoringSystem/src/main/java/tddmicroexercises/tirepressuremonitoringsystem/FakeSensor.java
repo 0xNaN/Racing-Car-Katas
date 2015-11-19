@@ -8,7 +8,7 @@ import java.util.Random;
 public class FakeSensor implements Sensor {
     public static final double OFFSET = 16;
 
-    public double popNextPressurePsiValue() {
+    public double value() {
         double pressureTelemetryValue;
         pressureTelemetryValue = samplePressure( );
 
