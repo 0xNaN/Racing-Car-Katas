@@ -45,4 +45,15 @@ public class TestAlarm {
     	
     	assertTrue(alarm.isAlarmOn());
     }
+    
+    @Test
+    public void
+    should_remain_off_when_tire_is_between_range() {
+    	context.checking(new Expectations(){{
+    		oneOf(sensor).value(); will(returnValue(1.5));
+    	}});
+    	alarm.check();
+    	
+    	assertFalse(alarm.isAlarmOn());
+    }
 }
