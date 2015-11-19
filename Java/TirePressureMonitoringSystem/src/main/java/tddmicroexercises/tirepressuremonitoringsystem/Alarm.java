@@ -15,8 +15,10 @@ public class Alarm
     	this.sensor = new Sensor();
     }
     
-    public Alarm(Sensor sensor) {
+    public Alarm(Sensor sensor, double lowTreshold, double highTreshold) {
     	this.sensor = sensor;
+    	this.lowTreshold = lowTreshold;
+    	this.highTreshold = highTreshold;
     }
 
     public void check()
@@ -33,4 +35,5 @@ public class Alarm
     {
         return alarmOn; 
     }
+    
 }
