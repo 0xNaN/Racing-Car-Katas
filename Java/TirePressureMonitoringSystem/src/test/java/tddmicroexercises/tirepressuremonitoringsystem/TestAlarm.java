@@ -29,4 +29,16 @@ public class TestAlarm {
     	
     	assertTrue(alarm.isAlarmOn());
     }
+    
+    @Test
+    public void
+    should_turn_on_when_tire_is_high() {
+    	Alarm alarm = new Alarm(sensor, 1, 2);
+    	context.checking(new Expectations(){{
+    		oneOf(sensor).value(); will(returnValue(3.0));
+    	}});
+    	alarm.check();
+    	
+    	assertTrue(alarm.isAlarmOn());
+    }
 }
