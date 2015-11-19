@@ -12,7 +12,7 @@ public class Alarm
     boolean alarmOn = false;
     
     public Alarm() {
-    	this.sensor = new Sensor();
+    	this.sensor = new FakeSensor();
     }
     
     public Alarm(Sensor sensor, double lowTreshold, double highTreshold) {
