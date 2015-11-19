@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class TestAlarm {
 	@Rule public JUnitRuleMockery context = new JUnitRuleMockery();
-	final Sensor sensor = context.mock(Sensor.class);
+	private final Sensor sensor = context.mock(Sensor.class);
 	
 	private Alarm alarm;
 	

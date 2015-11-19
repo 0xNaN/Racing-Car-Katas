@@ -2,8 +2,7 @@ package tddmicroexercises.tirepressuremonitoringsystem;
 
 public abstract class Alarm {
     private Sensor sensor;
-
-    boolean alarmOn = false;
+    private boolean alarmOn = false;
     
     public Alarm(Sensor sensor) {
     	this.sensor = sensor;
