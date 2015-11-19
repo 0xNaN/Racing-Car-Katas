@@ -15,7 +15,7 @@ public class TestAlarm {
 	
 	@Before
 	public void setUp() {
-		this.alarm = new Alarm(sensor, 1, 2);
+		this.alarm = new RangeAlarm(sensor, 1, 2);
 	}
 	
     @Test
