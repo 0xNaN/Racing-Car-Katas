@@ -25,6 +25,13 @@ public class HtmlTextConverterTest {
         assertEquals("line<br />", converter.convertToHtml());
     }
     
+    @Test
+    public void 
+    convert_two_lines() throws IOException {
+        HtmlTextConverter converter = new HtmlTextConverter(string2reader("line1\nline2"));
+        assertEquals("line1<br />line2<br />", converter.convertToHtml());
+    }
+    
     private BufferedReader string2reader(String string) {
     	InputStream is = new ByteArrayInputStream(string.getBytes());
     	return new BufferedReader(new InputStreamReader(is));
