@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -13,13 +14,19 @@ public class HtmlTextConverterTest {
 	@Rule public JUnitRuleMockery context = new JUnitRuleMockery();
 	private final File file = context.mock(File.class);
 	
+	private HtmlTextConverter converter;
+	
+	@Before
+	public void setUp() {
+		converter = new HtmlTextConverter(file);
+	}
+	
     @Test
     public void 
     doesnt_convert_an_empty_line() throws IOException {
     	context.checking(new Expectations(){{
 			oneOf(file).nextLine(); will(returnValue(null));
 		}});
-        HtmlTextConverter converter = new HtmlTextConverter(file);
         assertEquals("", converter.convertToHtml());
     }
     
@@ -32,7 +39,6 @@ public class HtmlTextConverterTest {
     				returnValue("line"),
     				returnValue(null)));
 		}});
-        HtmlTextConverter converter = new HtmlTextConverter(file);
         assertEquals("line<br />", converter.convertToHtml());
     }
     
@@ -46,7 +52,6 @@ public class HtmlTextConverterTest {
     				returnValue("line2"),
     				returnValue(null)));
 		}});
-        HtmlTextConverter converter = new HtmlTextConverter(file);
         assertEquals("line1<br />line2<br />", converter.convertToHtml());
     }
     
