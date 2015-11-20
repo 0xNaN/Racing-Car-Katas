@@ -11,15 +11,19 @@ abstract class TextConverter {
 	}
 	
 	public String convertToHtml() throws IOException{
-	    String line = reader.readLine();
+	    String line = readLine();
 	    String html = "";
 	    while (line != null)
 	    {
 	    	html += convertLine(line);
-	        line = reader.readLine();
+	    	line = readLine();
 	    }
 	    return html;
     }
+
+	private String readLine() throws IOException {
+		return reader.readLine();
+	}
 	
 	abstract String convertLine(String line);
 }
