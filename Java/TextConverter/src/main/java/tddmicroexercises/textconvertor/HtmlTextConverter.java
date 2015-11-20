@@ -1,22 +1,19 @@
 package tddmicroexercises.textconvertor;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 public class HtmlTextConverter extends TextConverter
 {
-    private String filePath;
-
+    private RegularFile file;
+    
     public HtmlTextConverter(String filePath) throws FileNotFoundException
     {
-    	super(new BufferedReader(new FileReader(filePath)));
-        this.filePath = filePath;
+    	super(new RegularFile(filePath));
     }
 
-    public HtmlTextConverter(BufferedReader reader)
+    public HtmlTextConverter(File file)
     {
-    	super(reader);
+    	super(file);
     }
     
     public String convertLine(String line) {
@@ -25,6 +22,6 @@ public class HtmlTextConverter extends TextConverter
     }
     
 	public String getFilename() {
-		return this.filePath;
+		return this.file.getPath();
 	}
 }
