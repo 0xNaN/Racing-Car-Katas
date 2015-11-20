@@ -5,38 +5,26 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class HtmlTextConverter
+public class HtmlTextConverter extends TextConverter
 {
-	private BufferedReader reader;
     private String filePath;
 
     public HtmlTextConverter(String filePath) throws FileNotFoundException
     {
+    	super(new BufferedReader(new FileReader(filePath)));
         this.filePath = filePath;
-        reader = new BufferedReader(new FileReader(filePath));
     }
 
     public HtmlTextConverter(BufferedReader reader)
     {
-    	this.reader = reader;
-    }
-
-    public String convertToHtml() throws IOException{
-	    String line = reader.readLine();
-	    String html = "";
-	    while (line != null)
-	    {
-	    	html += convertLine(line);
-	        line = reader.readLine();
-	    }
-	    return html;
-
+    	super(reader);
     }
     
-    private String convertLine(String line) {
+    public String convertLine(String line) {
     	return StringEscapeUtils.escapeHtml(line)
     			.concat("<br />");
     }
+    
 	public String getFilename() {
 		return this.filePath;
 	}
