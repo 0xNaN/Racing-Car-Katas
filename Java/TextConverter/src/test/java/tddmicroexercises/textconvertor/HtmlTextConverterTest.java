@@ -55,4 +55,17 @@ public class HtmlTextConverterTest {
         assertEquals("line1<br />line2<br />", converter.convertToHtml());
     }
     
+    @Test
+    public void 
+    convert_two_lines_with_special_chars() throws IOException {
+    	context.checking(new Expectations(){{
+    		exactly(3).of(file).nextLine();
+    		will(onConsecutiveCalls(
+    				returnValue("<line1>"),
+    				returnValue("'line2'"),
+    				returnValue(null)));
+		}});
+        assertEquals("&lt;line1&gt;<br />&quot;line2&quot;<br />", converter.convertToHtml());
+    }
+    
 }
