@@ -26,14 +26,17 @@ public class HtmlTextConverter
 	    String html = "";
 	    while (line != null)
 	    {
-	    	html += StringEscapeUtils.escapeHtml(line);
-	        html += "<br />";
+	    	html += convertLine(line);
 	        line = reader.readLine();
 	    }
 	    return html;
 
     }
-
+    
+    private String convertLine(String line) {
+    	return StringEscapeUtils.escapeHtml(line)
+    			.concat("<br />");
+    }
 	public String getFilename() {
 		return this.filePath;
 	}
