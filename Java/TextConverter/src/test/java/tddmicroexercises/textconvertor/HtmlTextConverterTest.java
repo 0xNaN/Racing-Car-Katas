@@ -18,6 +18,13 @@ public class HtmlTextConverterTest {
         assertEquals("", converter.convertToHtml());
     }
     
+    @Test
+    public void 
+    convert_a_simple_line() throws IOException {
+        HtmlTextConverter converter = new HtmlTextConverter(string2reader("line"));
+        assertEquals("line<br />", converter.convertToHtml());
+    }
+    
     private BufferedReader string2reader(String string) {
     	InputStream is = new ByteArrayInputStream(string.getBytes());
     	return new BufferedReader(new InputStreamReader(is));
