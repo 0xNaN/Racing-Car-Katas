@@ -26,4 +26,15 @@ public class TicketDispenserTest {
 		TurnTicket secondTicket = dispenser.getTurnTicket();
 		assertEquals(new TurnTicket(1), secondTicket);
 	}
+	
+	@Test public void
+	two_dispenser_doesnt_assign_the_same_ticket() {
+		TicketDispenser secondDispenser = new TicketDispenser(turnNumberSequence);
+		
+		TurnTicket firstTicket = dispenser.getTurnTicket();
+		TurnTicket secondTicket = secondDispenser.getTurnTicket();
+		
+		assertEquals(new TurnTicket(0), firstTicket);
+		assertEquals(new TurnTicket(1), secondTicket);
+	}
 }
