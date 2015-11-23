@@ -1,6 +1,6 @@
 package tddmicroexercises.turnticketdispenser;
 
-public class SequenceGeneratorFactory {
+public class TicketGeneratorFactory {
 	private static TurnNumberSequence turnNumberSequence = new TurnNumberSequence();
 	
 	public static 

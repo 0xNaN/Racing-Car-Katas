@@ -17,7 +17,7 @@ public class TicketDispenserTest {
 	
 	@Before
 	public void setUp() {
-		turnNumberSequence = SequenceGeneratorFactory.staticTurnTicketGenerator();
+		turnNumberSequence = TicketGeneratorFactory.staticTurnTicketGenerator();
 		turnNumberSequence.reset();
 		dispenser = new TicketDispenser(turnNumberSequence);
 	}
