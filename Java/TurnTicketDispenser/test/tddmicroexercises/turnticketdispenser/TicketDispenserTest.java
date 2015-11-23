@@ -4,11 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TicketDispenserTest extends TicketDispenser {
-
+public class TicketDispenserTest {
 	@Test public void
 	the_first_ticket_is_zero() {
-		TicketDispenser dispenser = new TicketDispenser();
+		TurnNumberSequence turnNumberSequence = new TurnNumberSequence();
+		TicketDispenser dispenser = new TicketDispenser(turnNumberSequence);
 		assertEquals(new TurnTicket(0), dispenser.getTurnTicket());
 	}
+	
 }
