@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TicketDispenserTest {
-	TurnNumberSequence turnNumberSequence;
+	SequenceGenerator turnNumberSequence;
 	TicketDispenser dispenser;
 	
 	TurnTicket TICKET_ZERO = new TurnTicket(0);
