@@ -7,4 +7,8 @@ public class TurnNumberSequence implements SequenceGenerator
 	public int nextNumber() {
 		return _turnNumber++;
 	}
+
+	public void reset() {
+		this._turnNumber = 0;
+	}
 }
