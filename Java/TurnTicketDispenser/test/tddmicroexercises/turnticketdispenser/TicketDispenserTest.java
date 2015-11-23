@@ -9,7 +9,6 @@ public class TicketDispenserTest extends TicketDispenser {
 	@Test public void
 	should_assign_a_ticket_of_zero() {
 		TicketDispenser dispenser = new TicketDispenser();
-		TurnTicket turnTicket = dispenser.getTurnTicket();
-		assertEquals(0, turnTicket.getTurnNumber());
+		assertEquals(new TurnTicket(0), dispenser.getTurnTicket());
 	}
 }
