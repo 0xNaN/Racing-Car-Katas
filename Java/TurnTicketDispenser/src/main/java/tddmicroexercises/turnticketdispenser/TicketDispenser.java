@@ -3,7 +3,11 @@ package tddmicroexercises.turnticketdispenser;
 public class TicketDispenser
 {
 	private SequenceGenerator turnNumberSequence;
-
+	
+	public TicketDispenser() {
+		this(TicketGeneratorFactory.staticTurnTicketGenerator());
+	}
+	
 	public TicketDispenser(SequenceGenerator turnNumberSequence) {
 		this.turnNumberSequence = turnNumberSequence; 
 	}
