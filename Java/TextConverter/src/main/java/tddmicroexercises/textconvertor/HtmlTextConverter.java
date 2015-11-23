@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public class HtmlTextConverter extends TextConverter
 {
-    private RegularFile file;
+    private File file;
     
     public HtmlTextConverter(String filePath) throws FileNotFoundException
     {

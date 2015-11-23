@@ -1,7 +1,5 @@
 package tddmicroexercises.textconvertor;
 
-import java.io.IOException;
-
 abstract class TextConverter {
 	private File file;
 
@@ -9,7 +7,7 @@ abstract class TextConverter {
 		this.file = file;
 	}
 	
-	public String convertToHtml() throws IOException{
+	public String convertToHtml() {
 	    String line = file.nextLine();
 	    String html = "";
 	    while (line != null)
