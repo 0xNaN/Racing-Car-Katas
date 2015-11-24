@@ -24,18 +24,21 @@ public class TelemetryDiagnosticControls
  
         public void checkTransmission() throws Exception
         {
-            diagnosticInfo = "";
-            
+        	connect();
             if(client.getOnlineStatus() == false)
-            	reconnect();
+            	client.reconnect();
     
             client.send(FakeTelemetryClient.DIAGNOSTIC_MESSAGE);
             diagnosticInfo = client.receive();
         }
 
-		private void reconnect() throws Exception {
-			client.disconnect();
-    
+        private void connect() {
+            client.connect(DiagnosticChannelConnectionString);	
+        }
+        
+        private void reconnect() throws Exception {
+    		client.disconnect();
+
             int retryLeft = RETRY_ATTEMPT;
             while (retryLeft > 0 && !client.getOnlineStatus())
             {
@@ -46,5 +49,5 @@ public class TelemetryDiagnosticControls
             if(client.getOnlineStatus() == false) {
                 throw new Exception("Unable to connect.");
             }
-		}
+    	}
 }
