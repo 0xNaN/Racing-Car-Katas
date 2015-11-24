@@ -1,7 +1,7 @@
 package tddmicroexercises.telemetrysystem;
 
-public class TelemetryDiagnosticControls
-{
+public class TelemetryDiagnosticControls {
+	
 	private final String DiagnosticChannelConnectionString = "*111#";
 	public static final String DIAGNOSTIC_MESSAGE = "AT#UD";
 

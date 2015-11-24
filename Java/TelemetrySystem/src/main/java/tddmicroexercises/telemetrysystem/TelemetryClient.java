@@ -4,7 +4,7 @@ public interface TelemetryClient {
 
 	public abstract boolean getOnlineStatus();
 
-	public abstract void connect(String telemetryServerConnectionString);
+	public abstract void connect(String connectionString);
 	
 	public abstract boolean reconnect();
 
