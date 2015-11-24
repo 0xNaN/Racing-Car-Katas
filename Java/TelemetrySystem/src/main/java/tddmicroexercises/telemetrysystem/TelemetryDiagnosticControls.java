@@ -4,12 +4,12 @@ public class TelemetryDiagnosticControls
 {
     private final String DiagnosticChannelConnectionString = "*111#";
     
-    private final TelemetryClient telemetryClient;
+    private final TelemetryClient client;
     private String diagnosticInfo = "";
 
-        public TelemetryDiagnosticControls()
+        public TelemetryDiagnosticControls(TelemetryClient client)
         {
-            telemetryClient = new FakeTelemetryClient();
+            this.client = client;
         }
         
         public String getDiagnosticInfo(){
@@ -24,21 +24,21 @@ public class TelemetryDiagnosticControls
         {
             diagnosticInfo = "";
 
-            telemetryClient.disconnect();
+            client.disconnect();
     
             int retryLeft = 3;
-            while (telemetryClient.getOnlineStatus() == false && retryLeft > 0)
+            while (client.getOnlineStatus() == false && retryLeft > 0)
             {
-                telemetryClient.connect(DiagnosticChannelConnectionString);
+                client.connect(DiagnosticChannelConnectionString);
                 retryLeft -= 1;
             }
              
-            if(telemetryClient.getOnlineStatus() == false)
+            if(client.getOnlineStatus() == false)
             {
                 throw new Exception("Unable to connect.");
             }
     
-            telemetryClient.send(FakeTelemetryClient.DIAGNOSTIC_MESSAGE);
-            diagnosticInfo = telemetryClient.receive();
+            client.send(FakeTelemetryClient.DIAGNOSTIC_MESSAGE);
+            diagnosticInfo = client.receive();
     }
 }
