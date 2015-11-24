@@ -9,7 +9,7 @@ public class TelemetryDiagnosticControls
 
         public TelemetryDiagnosticControls()
         {
-            telemetryClient = new TelemetryClient();
+            telemetryClient = new FakeTelemetryClient();
         }
         
         public String getDiagnosticInfo(){
@@ -38,7 +38,7 @@ public class TelemetryDiagnosticControls
                 throw new Exception("Unable to connect.");
             }
     
-            telemetryClient.send(TelemetryClient.DIAGNOSTIC_MESSAGE);
+            telemetryClient.send(FakeTelemetryClient.DIAGNOSTIC_MESSAGE);
             diagnosticInfo = telemetryClient.receive();
     }
 }
