@@ -2,9 +2,11 @@ package tddmicroexercises.telemetrysystem;
 
 public class TelemetryDiagnosticControls
 {
-    private final String DiagnosticChannelConnectionString = "*111#";
+    private static final int RETRY_ATTEMPT = 3;
+
+	private final String DiagnosticChannelConnectionString = "*111#";
     
-    private final TelemetryClient client;
+    private TelemetryClient client;
     private String diagnosticInfo = "";
 
         public TelemetryDiagnosticControls(TelemetryClient client)
@@ -26,8 +28,8 @@ public class TelemetryDiagnosticControls
 
             client.disconnect();
     
-            int retryLeft = 3;
-            while (client.getOnlineStatus() == false && retryLeft > 0)
+            int retryLeft = RETRY_ATTEMPT;
+            while (retryLeft > 0 && !client.getOnlineStatus())
             {
                 client.connect(DiagnosticChannelConnectionString);
                 retryLeft -= 1;
