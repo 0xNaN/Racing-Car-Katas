@@ -26,7 +26,6 @@ public class TelemetryDiagnosticControls
         	connect();
             if(client.getOnlineStatus() == false)
             	client.reconnect();
-    
             client.send(DIAGNOSTIC_MESSAGE);
             diagnosticInfo = client.receive();
         }
@@ -35,5 +34,4 @@ public class TelemetryDiagnosticControls
             client.connect(DiagnosticChannelConnectionString);	
         }
         
-  
 }
