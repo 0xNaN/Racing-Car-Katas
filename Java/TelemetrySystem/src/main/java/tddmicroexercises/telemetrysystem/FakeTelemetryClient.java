@@ -89,5 +89,6 @@ public class FakeTelemetryClient implements TelemetryClient
 
         return message;
     }
+    
 }
 
