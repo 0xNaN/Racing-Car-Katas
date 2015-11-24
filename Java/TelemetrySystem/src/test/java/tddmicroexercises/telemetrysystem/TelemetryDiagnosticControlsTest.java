@@ -16,7 +16,7 @@ public class TelemetryDiagnosticControlsTest
 		TelemetryDiagnosticControls diagnosticControl = new TelemetryDiagnosticControls(client);
 		context.checking(new Expectations(){{
 			oneOf(client).disconnect();
-			exactly(4).of(client).getOnlineStatus(); will(returnValue(false));
+			exactly(5).of(client).getOnlineStatus(); will(returnValue(false));
 			exactly(3).of(client).connect(with(any(String.class)));
 		}});
 		diagnosticControl.checkTransmission();
